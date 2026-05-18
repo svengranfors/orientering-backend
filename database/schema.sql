@@ -76,21 +76,22 @@ CREATE TABLE activities (
 -- =============================================
 -- Behörigheter (Supabase anon-användare)
 -- =============================================
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.roles TO anon;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.competitions TO anon;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.process_templates TO anon;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.activity_templates TO anon;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.assignments TO anon;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.competition_processes TO anon;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.activities TO anon;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.roles TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.competitions TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.process_templates TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.activity_templates TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.assignments TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.competition_processes TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.activities TO anon, authenticated, service_role;
 
-GRANT USAGE, SELECT ON SEQUENCE roles_id_seq TO anon;
-GRANT USAGE, SELECT ON SEQUENCE competitions_id_seq TO anon;
-GRANT USAGE, SELECT ON SEQUENCE process_templates_id_seq TO anon;
-GRANT USAGE, SELECT ON SEQUENCE activity_templates_id_seq TO anon;
-GRANT USAGE, SELECT ON SEQUENCE assignments_id_seq TO anon;
-GRANT USAGE, SELECT ON SEQUENCE competition_processes_id_seq TO anon;
-GRANT USAGE, SELECT ON SEQUENCE activities_id_seq TO anon;
+GRANT USAGE, SELECT ON SEQUENCE roles_id_seq TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON SEQUENCE competitions_id_seq TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON SEQUENCE process_templates_id_seq TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON SEQUENCE assignments_id_seq TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON SEQUENCE competition_processes_id_seq TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON SEQUENCE activities_id_seq TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON SEQUENCE process_templates_id_seq TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON SEQUENCE activity_templates_id_seq TO anon, authenticated, service_role;
 
 -- =============================================
 -- RLS-policies (Row Level Security)
