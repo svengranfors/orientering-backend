@@ -9,3 +9,10 @@ class Competition(Base):
     competition_type = Column(String, nullable=False)
     date = Column(Date, nullable=False)
     organizer = Column(String, nullable=False)
+    
+class Role(Base):
+    __tablename__ = "roles"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    description = Column(String)
